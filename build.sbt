@@ -11,7 +11,8 @@ lazy val root = (project in file("."))
     name := "riscv-simple-cpu",
     libraryDependencies ++= Seq(
       "edu.berkeley.cs" %% "chisel3" % chiselVersion,
-      "edu.berkeley.cs" %% "chiseltest" % "0.5.1" % "test"
+      "edu.berkeley.cs" %% "chiseltest" % "0.5.1" % "test",
+      "edu.berkeley.cs" %% "chisel-iotesters" % "2.5.1"
     ),
     scalacOptions ++= Seq(
       "-language:reflectiveCalls",
