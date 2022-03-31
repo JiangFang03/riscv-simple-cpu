@@ -7,21 +7,35 @@ WORK_DIR  = $(shell pwd)
 
 SBT = sbt
 
-
 # Generate Verilog code
 
-alu:
+v-alu:
 	$(SBT) "runMain AluMain"
-ctrl:
+
+v-aluctrl:
+	$(SBT) "runMain AluCtrlMain"
+
+v-ctrl:
 	$(SBT) "runMain CtrlMain"
 
+v-pc:
+	$(SBT) "runMain PcMain"
 
+v-rfs:
+	$(SBT) "runMain RegFilesMain"
 # Generate the C++ simulation and run the tests
-alu-test:
+test-alu:
 	$(SBT) "test:runMain AluTestMain -td ./generated/alu --backend-name verilator " 
 
-ctrl-test:
+test-ctrl:
 	$(SBT) "test:runMain CtrlTestMain -td ./generated/ctrl --backend-name verilator " 
+
+test-aluctrl:
+	$(SBT) "test:runMain AluCtrlTestMain  -td ./generated/aluctrl --backend-name verilator" 
+
+test-rfs:
+	$(SBT) "test:runMain RegFilesTestMain  -td ./generated/rfs --backend-name verilator" 
+
 
 
 clean:
@@ -32,5 +46,11 @@ clean-alu:
 
 clean-ctrl:
 	rm -rf $(WORK_DIR)/generated/ctrl/
+
+clean-aluctrl:
+	rm -rf $(WORK_DIR)/generated/aluctrl/
+
+clean-rfs:
+	rm -rf $(WORK_DIR)/generated/rfs/
 
 .PHONY: clean

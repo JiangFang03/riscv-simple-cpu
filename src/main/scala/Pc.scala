@@ -14,3 +14,8 @@ class Pc extends Module{
     io.out := reg
     io.pc4 := reg + 4.S
 }
+
+object PcMain extends App {
+  println("Generating the Pc hardware")
+  (new chisel3.stage.ChiselStage).emitVerilog(new Pc(), Array("--target-dir", "generated/pc/v"))
+}

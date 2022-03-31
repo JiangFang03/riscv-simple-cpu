@@ -6,18 +6,18 @@ class AluTest(c :Alu) extends PeekPokeTester(c){
     poke(c.io.oper_a, 1)
     poke(c.io.oper_b, 0)
     // &
-    poke(c.io.aluCtrl, 0) 
+    poke(c.io.alu_ctrl, 0) 
     step(1)
    // expect(c.io.result, -4)
     // |
-    poke(c.io.aluCtrl, 1) 
+    poke(c.io.alu_ctrl, 1) 
     step(1)
     // +
-    poke(c.io.aluCtrl, 2) 
+    poke(c.io.alu_ctrl, 2) 
     step(1)
 
     // -
-    poke(c.io.aluCtrl, 6) 
+    poke(c.io.alu_ctrl, 6) 
     step(1)
    
 }

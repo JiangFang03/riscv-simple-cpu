@@ -7,14 +7,14 @@ class Alu extends Module{
     val io = IO(new Bundle{
         val oper_a  = Input(SInt(64.W))
         val oper_b  = Input(SInt(64.W))
-        val aluCtrl = Input(UInt(5.W))
+        val alu_ctrl = Input(UInt(5.W))
         val result  = Output(SInt(64.W))
         val zero  = Output(UInt(1.W))
     })
     val res = Wire(SInt(64.W))
     //default result 
     res := 0.S;
-    switch(io.aluCtrl) {
+    switch(io.alu_ctrl) {
         is("b0000".U) { res := io.oper_a & io.oper_b }//AND
         is("b0001".U) { res := io.oper_a | io.oper_b }//OR
         is("b0010".U) { res := io.oper_a + io.oper_b }//ADD
