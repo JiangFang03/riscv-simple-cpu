@@ -13,6 +13,7 @@ class RegFiles extends Module{
         val r_data2 = Output(SInt(64.W))
     })
     //Initialize 32 registers, the initial value is 0, and the length is 64 bits
+    
     val registers = RegInit(VecInit(Seq.fill(32)(0.S(64.W))))
     
     registers(0) := 0.S

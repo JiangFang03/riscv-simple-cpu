@@ -23,6 +23,16 @@ v-pc:
 
 v-rfs:
 	$(SBT) "runMain RegFilesMain"
+
+v-dm:
+	$(SBT) "runMain DataMemMain"
+
+v-im:
+	$(SBT) "runMain InstMemMain"
+
+v-top:
+	$(SBT) "runMain TopMain"
+
 # Generate the C++ simulation and run the tests
 test-alu:
 	$(SBT) "test:runMain AluTestMain -td ./generated/alu --backend-name verilator " 
@@ -35,6 +45,10 @@ test-aluctrl:
 
 test-rfs:
 	$(SBT) "test:runMain RegFilesTestMain  -td ./generated/rfs --backend-name verilator" 
+test-dm:
+	$(SBT) "test:runMain DataMemTestMain  -td ./generated/dm --backend-name verilator" 
+test-im:
+	$(SBT) "test:runMain InstMemTestMain  -td ./generated/im --backend-name verilator" 
 
 
 
@@ -52,5 +66,9 @@ clean-aluctrl:
 
 clean-rfs:
 	rm -rf $(WORK_DIR)/generated/rfs/
+clean-dm:
+	rm -rf $(WORK_DIR)/generated/dm/
+clean-im:
+	rm -rf $(WORK_DIR)/generated/im/
 
 .PHONY: clean

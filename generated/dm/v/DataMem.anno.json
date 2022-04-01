@@ -1,0 +1,19 @@
+[
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"generated/dm/v"
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~DataMem|DataMem>io_read_data",
+    "sources":[
+      "~DataMem|DataMem>io_mem_write",
+      "~DataMem|DataMem>io_mem_read",
+      "~DataMem|DataMem>io_address"
+    ]
+  }
+]
