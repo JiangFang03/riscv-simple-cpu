@@ -45,7 +45,8 @@ class Top extends Module{
     dmem.io.address := alu.io.result(11,2)
     dmem.io.write_data := reg_files.io.r_data2
     //immediate 
-    val imm = SInt(0,64.W)
+    val imm = Wire ( SInt (64.W) )
+    imm := 0.S(64.W)
     when(instruction(6,0) === "b0000011".U){//I-type
         imm := imm_gen.io.i_imm
     }.elsewhen(instruction(6,0) === "b0100011".U){//S-type
@@ -63,6 +64,8 @@ class Top extends Module{
     when((alu.io.zero).asBool && (ctrl.io.branch).asBool){
         pc.io.in := pc.io.out + imm
     }
+    io.reg_out := reg_files.io.r_data1
+    //io.reg_out := 0.S(64.W)
 }
 
 object TopMain extends App {

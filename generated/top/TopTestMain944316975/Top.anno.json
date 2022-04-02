@@ -1,0 +1,23 @@
+[
+  {
+    "class":"firrtl.annotations.LoadMemoryAnnotation",
+    "target":"Top.InstMem.mem",
+    "fileName":"/home/fangj/ysyx/cpc/riscv-simple-cpu/insts.txt",
+    "hexOrBinary":"h",
+    "originalMemoryNameOpt":"mem"
+  },
+  {
+    "class":"firrtl.stage.RunFirrtlTransformAnnotation",
+    "transform":"chisel3.util.experimental.LoadMemoryTransform"
+  },
+  {
+    "class":"firrtl.stage.RunFirrtlTransformAnnotation",
+    "transform":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"logger.LogLevelAnnotation",
+    "globalLogLevel":{
+      
+    }
+  }
+]

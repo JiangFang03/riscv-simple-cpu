@@ -30,6 +30,9 @@ v-dm:
 v-im:
 	$(SBT) "runMain InstMemMain"
 
+v-ig:
+	$(SBT) "runMain ImmGenMain"
+
 v-top:
 	$(SBT) "runMain TopMain"
 
@@ -50,6 +53,8 @@ test-dm:
 test-im:
 	$(SBT) "test:runMain InstMemTestMain  -td ./generated/im --backend-name verilator" 
 
+test-top:
+	$(SBT) "test:runMain TopTestMain  -td ./generated/top --backend-name verilator" 
 
 
 clean:
@@ -70,5 +75,8 @@ clean-dm:
 	rm -rf $(WORK_DIR)/generated/dm/
 clean-im:
 	rm -rf $(WORK_DIR)/generated/im/
+
+clean-top:
+	rm -rf $(WORK_DIR)/generated/top/
 
 .PHONY: clean

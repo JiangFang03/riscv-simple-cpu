@@ -19,8 +19,18 @@ class ImmGen extends Module{
     val s_upper_half = io.instruction(31,25)    // bits 25-31 from 32 bits
     var s_imm_12 = Cat(s_upper_half, s_lower_half)    // merging immediates together to form 12 bits
     val s_imm_64 = Cat(Fill(52, s_imm_12(11)), s_imm_12)   // sign extending 12 bits to 32 bits and merging the 12 bit immediate 
-    io.s_imm := s_imm_64.asSInt
-    
+    io.s_imm := s_imm_64.asSInt    
     // ----- Calculating B-Immediate ------ //
+    val sb_lower_half = io.instruction(11,8)
+    val sb_upper_half = io.instruction(30, 25)
+    val sb_11thbit = io.instruction(7)
+    val sb_12thbit = io.instruction(31)
+    val sb_imm_13 = Cat(sb_12thbit, sb_11thbit, sb_upper_half, sb_lower_half, 0.S)
+    val sb_imm_64 = Cat(Fill(51, sb_imm_13(12)), sb_imm_13).asSInt
+    io.b_imm := sb_imm_64.asSInt
+}
 
+object ImmGenMain extends App {
+  println("Generating the ImmGen hardware")
+  (new chisel3.stage.ChiselStage).emitVerilog(new ImmGen(), Array("--target-dir", "generated/ig/v"))
 }
