@@ -1,8 +1,8 @@
-## this is a simple riscv cpu example
+# 基于RISC-V的单周期CPU
 ## 简介
-按照《计算机组成与设计：硬件/软件接口 第五版》（Computer Organization and Design: The Hardware/Software Interface） RISC-V EDITION 第四章前半部分单周期 CPU 实现，线路图和端口命名基本一致，支持 add, sub, or, and, ori, lw, sw, beq
+按照《计算机组成与设计：硬件/软件接口 第五版》（Computer Organization and Design: The Hardware/Software Interface） RISC-V EDITION 第四章前半部分单周期 CPU 实现，线路图和端口命名基本一致，支持 `add`, `sub`, `or`, `and`, `ori`, `lw`, `sw`, `beq`。
 
-
+![image](https://github.com/JiangFang03/riscv-simple-cpu/blob/main/img/single-cycle-cpu.png)
 ## 环境
 - Ubuntu2004
 - Verilator
