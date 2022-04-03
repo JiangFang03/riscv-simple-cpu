@@ -20,6 +20,13 @@ class TopTest(c: Top) extends PeekPokeTester(c) {
     step(1)
     step(1)
     step(1)
+
+    step(1)
+    step(1)
+    step(1)
+
+
+
 }
 
 object TopTestMain extends App {

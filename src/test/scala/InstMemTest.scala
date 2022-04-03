@@ -7,7 +7,10 @@ class InstMemTest(c : InstMem) extends PeekPokeTester(c){
     poke(c.io.address,2)
     step(1)
 
-    poke(c.io.address,20)
+    poke(c.io.address,14)
+    step(1)
+
+    poke(c.io.address,15)
     step(1)
 }
 

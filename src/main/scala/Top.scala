@@ -46,13 +46,23 @@ class Top extends Module{
     dmem.io.write_data := reg_files.io.r_data2
     //immediate 
     val imm = Wire ( SInt (64.W) )
-    imm := 0.S(64.W)
-    when(instruction(6,0) === "b0000011".U){//I-type
+    
+    when(instruction(6,0) === "b0000011".U){//I-type lw
+        imm := imm_gen.io.i_imm
+    }.elsewhen(instruction(6,0) === "b0010011".U){//I-type addi
         imm := imm_gen.io.i_imm
     }.elsewhen(instruction(6,0) === "b0100011".U){//S-type
         imm := imm_gen.io.s_imm
     }.elsewhen(instruction(6,0) === "b1100011".U){//B type
         imm := imm_gen.io.b_imm
+    }.elsewhen(instruction(6,0) === "b1101111".U){//J-type
+        imm := imm_gen.io.j_imm
+    }.elsewhen(instruction(6,0) === "b0010111".U){//U-type auipc
+        imm := imm_gen.io.u_imm
+    }.elsewhen(instruction(6,0) === "b0110111".U){//U-type lui
+        imm := imm_gen.io.u_imm
+    }.otherwise{
+        imm := 0.S(64.W)
     }
 
     //alu

@@ -52,6 +52,8 @@ test-dm:
 	$(SBT) "test:runMain DataMemTestMain  -td ./generated/dm --backend-name verilator" 
 test-im:
 	$(SBT) "test:runMain InstMemTestMain  -td ./generated/im --backend-name verilator" 
+test-ig:
+	$(SBT) "test:runMain ImmGenTestMain  -td ./generated/ig --backend-name verilator" 
 
 test-top:
 	$(SBT) "test:runMain TopTestMain  -td ./generated/top --backend-name verilator" 
@@ -73,9 +75,12 @@ clean-rfs:
 	rm -rf $(WORK_DIR)/generated/rfs/
 clean-dm:
 	rm -rf $(WORK_DIR)/generated/dm/
+	
 clean-im:
 	rm -rf $(WORK_DIR)/generated/im/
 
+clean-ig:
+	rm -rf $(WORK_DIR)/generated/ig/
 clean-top:
 	rm -rf $(WORK_DIR)/generated/top/
 
