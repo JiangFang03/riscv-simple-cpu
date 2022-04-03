@@ -55,7 +55,7 @@ test-im:
 test-ig:
 	$(SBT) "test:runMain ImmGenTestMain  -td ./generated/ig --backend-name verilator" 
 
-test-top:
+run test-top:
 	$(SBT) "test:runMain TopTestMain  -td ./generated/top --backend-name verilator" 
 
 

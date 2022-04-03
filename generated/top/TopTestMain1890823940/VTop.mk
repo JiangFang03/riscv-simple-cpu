@@ -46,7 +46,7 @@ VM_USER_CLASSES = \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
-	/home/fangj/ysyx/cpc/riscv-simple-cpu/./generated/top/TopTestMain1932091491 \
+	/home/fangj/ysyx/cpc/riscv-simple-cpu/./generated/top/TopTestMain1890823940 \
 
 
 ### Default rules...
@@ -58,7 +58,7 @@ include $(VERILATOR_ROOT)/include/verilated.mk
 ### Executable rules... (from --exe)
 VPATH += $(VM_USER_DIR)
 
-Top-harness.o: /home/fangj/ysyx/cpc/riscv-simple-cpu/./generated/top/TopTestMain1932091491/Top-harness.cpp
+Top-harness.o: /home/fangj/ysyx/cpc/riscv-simple-cpu/./generated/top/TopTestMain1890823940/Top-harness.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)

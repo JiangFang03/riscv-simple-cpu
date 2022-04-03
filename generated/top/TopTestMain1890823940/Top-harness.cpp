@@ -101,7 +101,7 @@ void vl_finish(const char* filename, int linenum, const char* hier) {
 int main(int argc, char **argv, char **env) {
     Verilated::commandArgs(argc, argv);
     VTop* top = new VTop;
-    std::string vcdfile = "./generated/top/TopTestMain1932091491/Top.vcd";
+    std::string vcdfile = "./generated/top/TopTestMain1890823940/Top.vcd";
     std::vector<std::string> args(argv+1, argv+argc);
     std::vector<std::string>::const_iterator it;
     for (it = args.begin() ; it != args.end() ; it++) {
